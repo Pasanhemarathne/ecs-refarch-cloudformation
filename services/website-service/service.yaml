@@ -16,11 +16,6 @@ Parameters:
     Type: Number
     Default: 2
 
-  MaxCount:
-    Description: Maximum number of instances of this task we can run across our cluster
-    Type: Number
-    Default: 3
-
   ProductServiceUrl:
     Description: The URL of the Product Service (used to fetch product information)
     Type: String
@@ -150,7 +145,6 @@ Resources:
   ServiceScalableTarget:
     Type: "AWS::ApplicationAutoScaling::ScalableTarget"
     Properties:
-      MaxCapacity: !Ref MaxCount
       MinCapacity: !Ref DesiredCount
       ResourceId: !Join
         - /
